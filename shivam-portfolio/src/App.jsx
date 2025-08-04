@@ -124,7 +124,7 @@ export default function Portfolio() {
       githubLink: "https://github.com/IMSHIVAMRAJ/WeCare",
       image: wecare,
       gradient: "from-purple-600 via-pink-600 to-blue-600",
-      featured: true,
+      featured: true, // Keeping this property for data, but not for rendering distinction
     },
     {
       name: "HackVerse",
@@ -333,8 +333,8 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-15 min-h-screen flex items-center relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15">
+      <section id="hero" className="pt-10 min-h-screen flex items-center relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="space-y-6">
@@ -429,7 +429,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-15 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -522,68 +522,14 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              Featured Projects
+              My Projects
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {/* Featured Project */}
-            <div className="lg:col-span-2">
-              <div className="group relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
-                <Card className="relative bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="aspect-video lg:aspect-auto overflow-hidden">
-                      <img
-                        src={projects[0].image || "/placeholder.svg"}
-                        alt={projects[0].name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
-                    </div>
-                    <div className="p-8 flex flex-col justify-center">
-                      <div className="flex items-center gap-2 mb-4">
-                        <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0">
-                          Featured
-                        </Badge>
-                        <FolderOpen className="h-5 w-5 text-purple-400" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-4">{projects[0].name}</h3>
-                      <p className="text-white/70 mb-6 leading-relaxed">{projects[0].description}</p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {projects[0].tech.map((tech) => (
-                          <Badge key={tech} variant="outline" className="border-white/30 text-white/80">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex gap-4">
-                        <Button
-                          onClick={() => openExternalLink(projects[0].liveLink)}
-                          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 border-0"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </Button>
-                        <Button
-                          variant="outline"
-                          onClick={() => openExternalLink(projects[0].githubLink)}
-                          className="border-white/30 text-white hover:bg-white/10 bg-transparent"
-                        >
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.slice(1).map((project, index) => (
+          {/* Unified Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
               <div key={index} className="group relative">
                 <div
                   className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500`}
@@ -761,7 +707,7 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <CardHeader className="pb-1">
+                  <CardHeader className="pb-2">
                     <CardTitle className="text-white text-lg leading-tight">{cert.title}</CardTitle>
                     <CardDescription className="text-purple-400 font-medium">{cert.issuer}</CardDescription>
                   </CardHeader>
@@ -794,7 +740,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              Let's Connect
+              Let's Connect 
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
             <p className="text-xl text-white/70 mt-6 max-w-2xl mx-auto">
